@@ -1,10 +1,11 @@
 <?php 
-error_reporting(E_ALL);
 
 class Session{
 	
 	private $logged_in;
-	public $group_unique_id;
+	public $user_id;
+	public $user_level;
+	public $user_group_id;
 	
 	function __construct(){
 		session_start();
@@ -12,11 +13,15 @@ class Session{
 	}
 
 	private function check_login(){
-		if(isset($_SESSION[C_GROUP_UNIQUE_ID])){
-			$this->group_unique_id = $_SESSION[C_GROUP_UNIQUE_ID];
-			$this->logged_in = true;
+		if(isset($_SESSION[C_USER_UNIQUE_ID]) && isset($_SESSION[C_USER_LEVEL]) && isset($_SESSION[C_USER_GROUP_ID])){
+			$this->user_id 			= $_SESSION[C_USER_UNIQUE_ID];
+			$this->user_level 		= $_SESSION[C_USER_LEVEL];
+			$this->user_group_id 	= $_SESSION[C_USER_GROUP_ID];
+			$this->logged_in 	= true;
 		}else{
-			unset($this->group_unique_id);
+			unset($this->user_id);
+			unset($this->user_level);
+			unset($this->user_group_id);
 			$this->logged_in = false;
 		}
 	}
@@ -25,20 +30,25 @@ class Session{
 		return $this->logged_in;
 	}
 	
-	public function login($group){
-		if($group){
-			$this->group_unique_id = $_SESSION[C_GROUP_UNIQUE_ID] = $group->id;
+	public function login($user){
+		if($user){
+			$this->user_id 			= $_SESSION[C_USER_UNIQUE_ID] 	= $user->id;
+			$this->user_level 		= $_SESSION[C_USER_LEVEL] 		= $user->level;
+			$this->user_group_id 	= $_SESSION[C_USER_GROUP_ID]	= $user->group_id;
 		}
 	}
 	
 	public function logout(){
-		unset($_SESSION[C_GROUP_UNIQUE_ID]);
-		unset($this->user_unique_id);
+		unset($_SESSION[C_USER_UNIQUE_ID]);
+		unset($_SESSION[C_USER_LEVEL]);
+		unset($_SESSION[C_USER_GROUP_ID]);
+		unset($this->user_id);
 		unset($this->user_level);
-		unset($this->last_position_loaded);
+		unset($this->user_group_id);
 		$this->logged_in = false;
 	}
 }
+
 $session = new Session();
 
 ?>

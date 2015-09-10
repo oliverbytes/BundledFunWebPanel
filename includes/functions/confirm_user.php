@@ -1,6 +1,7 @@
-<?php require_once("../initialize.php"); ?>
-<?php 
+<?php require_once("../initialize.php"); 
+
 global $session;
+
 if($session->is_logged_in()){
 	if(isset($_GET['user_unique_id'])){
 		$user_unique_id = $_GET['user_unique_id'];
@@ -13,5 +14,7 @@ if($session->is_logged_in()){
 		$user->update();
 	}
 }
+
 redirect_to("../../public/admin/index.php");
+
 ?>

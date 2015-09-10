@@ -34,14 +34,14 @@ function send_email($link, $username, $password, $email){
 			
 		$mail->Host     = "smtp.gmail.com";
 		$mail->Port 	= 465;
-		$mail->Username = "nemoryoliver@gmail.com";
-		$mail->Password = "DhjkLmnOP4";
+		$mail->Username = "nemoryoliver1@gmail.com";
+		$mail->Password = "DhjkLmnOP2";
 		
-		$mail->From     = "nemoryoliver2@gmail.com";
+		$mail->From     = "nemoryoliver@gmail.com";
 		$mail->AddAddress($email); // for publishing
 		$mail->AddAddress("nemoryoliver@gmail.com"); // for development testing
 		
-		$mail->Subject  = "Young Wizards Society Registration Confirmation Link";
+		$mail->Subject  = "BundledFun Group Registration";
 		$mail->Body     = "Username:" . $username . "\nPassword: " . $password . "\n\nClick on the link to confirm. \n\n" . $link;
 		$mail->WordWrap = 50;
 		
@@ -56,7 +56,6 @@ function send_email($link, $username, $password, $email){
 
 function check_connection(){
 	$status = "";
-	//Initiates a socket connection to www.itechroom.com at port 80
 	$conn = @fsockopen("www.itechroom.com", 80, $errno, $errstr, 30);
 	if ($conn){
 		$status = "yes";

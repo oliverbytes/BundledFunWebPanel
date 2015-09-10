@@ -1,45 +1,78 @@
+/*
+ * jQuery File Upload Plugin JS Example 6.7
+ * https://github.com/blueimp/jQuery-File-Upload
+ *
+ * Copyright 2010, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
 
-$(document).ready(function(){
+/*jslint nomen: true, unparam: true, regexp: true */
+/*global $, window, document */
 
-	function load(element, file){
-		$(element).load(file);
-	}
+$(function () {
+    'use strict';
 
-	load('#main_content', '../public/table_users.php');
+    // Initialize the jQuery File Upload widget:
+    $('#fileupload').fileupload();
 
-	$('#groups').click(function(){
-		load('#main_content', '../public/table_groups.php');
-	});
+    // Enable iframe cross-domain access via redirect option:
+    $('#fileupload').fileupload(
+        'option',
+        'redirect',
+        window.location.href.replace(
+            /\/[^\/]*$/,
+            '/cors/result.html?%s'
+        )
+    );
 
-
-	$('#users').click(function(){
-		load('#main_content', '../public/table_users.php');
-	});
-
-	$('#questions').click(function(){
-		load('#main_content', '../public/table_questions.php');
-		$(document).ready();
-	});
-
-	$('#logout').click(function(e) {        // Button which will activate our modal
-        $('#modal-dialog').reveal({                // The item which will be opened with reveal
-            animation: 'fade',              // fade, fadeAndPop, none
-            animationspeed: 200,            // how fast animtions are
-            closeonbackgroundclick: false,   // if you click background will modal close?
-            dismissmodalclass: 'close-reveal-modal'      // the class of a button or element that will close an open modal
+    if (window.location.hostname === 'blueimp.github.com') {
+        // Demo settings:
+        $('#fileupload').fileupload('option', {
+            url: '//jquery-file-upload.appspot.com/',
+            maxFileSize: 5000000,
+            acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+            process: [
+                {
+                    action: 'load',
+                    fileTypes: /^image\/(gif|jpeg|png)$/,
+                    maxFileSize: 20000000 // 20MB
+                },
+                {
+                    action: 'resize',
+                    maxWidth: 1440,
+                    maxHeight: 900
+                },
+                {
+                    action: 'save'
+                }
+            ]
         });
-    	return false;
-    });
-
-    $('#update').click(function(e) {        // Button which will activate our modal
-    	alert("update");
-    });
-
-    $('#delete').click(function(e) {        // Button which will activate our modal
-    	alert("delete");
-    });
+        // Upload server status check for browsers with CORS support:
+        if ($.support.cors) {
+            $.ajax({
+                url: '//jquery-file-upload.appspot.com/',
+                type: 'HEAD'
+            }).fail(function () {
+                $('<span class="alert alert-error"/>')
+                    .text('Upload server currently unavailable - ' +
+                            new Date())
+                    .appendTo('#fileupload');
+            });
+        }
+    } else {
+        // Load existing files:
+        $('#fileupload').each(function () {
+            var that = this;
+            $.getJSON(this.action, function (result) {
+                if (result && result.length) {
+                    $(that).fileupload('option', 'done')
+                        .call(that, null, {result: result});
+                }
+            });
+        });
+    }
 
 });
-
-
-

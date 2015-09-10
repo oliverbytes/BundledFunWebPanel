@@ -1,21 +1,21 @@
-/** -------------- HOUSE KEEPING STUFF ---------------- **/
+
 *{
     margin: 0px;
     padding: 0px;
-    font-family: roboto, Arial;
-    color: white;
+    font-family: RobotoRegular, Arial;
 }
 
 header, footer, article, hgroup, section, aside{
     display: block;
 }
+
 /** -------------- HOUSE KEEPING STUFF ---------------- **/
 
 body{
     width: 100%;
     display: -webkit-box;
     -webkit-box-pack: center;
-    background-color: #235c88;
+    background-color: #F2F2F2;
 }
 
 #main_container{
@@ -32,22 +32,22 @@ body{
 
 #main_content{
     -webkit-box-flex: 1;
-    -webkit-transition: -webkit-transition 1s, background-color 1s;
     margin-right: 5px;
-    background-color: #3182c1;
     padding: 30px;
-}
-
-#main_content:hover{
-    background-color: #3c9be5;
 }
 
 li{
     list-style-type: none;
 }
 
-h2{
-    color: #2BA9FF;
+p{
+    margin: 10px;
+}
+
+h1{
+    font-family: "RobotoThin", "Arial";
+    font-size: 30px;
+    padding: 10px;
 }
 
 #main_header{
@@ -56,10 +56,9 @@ h2{
 }
 
 #main_header h1{
-    font: 50px roboto thin;
+    font: 50px RobotoThin;
     padding: 30px;
     margin-bottom: 5px;
-    -webkit-transition: -webkit-transition 1s, background-color 1s;
 }
 
 #main_nav{
@@ -81,29 +80,23 @@ h2{
     display: -webkit-box;
     -webkit-box-flex: 1;
     -webkit-box-pack: center;
-    text-decoration: none;
-    padding: 20px 30px;
     margin-right: 5px;
-    background-color: #3182c1;
-    color: white;
-    -webkit-transition: -webkit-transition 1s, background-color 1s;
-}
-
-#main_nav ul li a:hover{
-    background-color: #3c9be5;
 }
 
 #main_footer{
-    margin-top: 5px;
+    margin-top: 50px;
     margin-bottom: 5px;
 }
 
 #main_footer p{
     display: -webkit-box;
-    font-size: 10px;
     -webkit-box-pack: center;
-    background-color: #3182c1;
     padding: 5px;
+}
+
+#image_header img{
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 #image_header{
@@ -113,27 +106,10 @@ h2{
     padding: 20px;
     margin-top: 5px;
     margin-bottom: 2px;
-    -webkit-transition: -webkit-transition 1s, background-color 1s;
-    background-color: #3182c1;
 }
-
-#image_header img{
-    height: 300px;
-}
-
-#image_header:hover{
-    background-color: #3c9be5;
-}
-
 
 #side_content{
     padding: 20px;
-    background-color: #3182c1;
-    -webkit-transition: -webkit-transition 1s,  background-color 1s;
-}
-
-#side_content:hover{
-    background-color: #3c9be5;
 }
 
 #items_container{
@@ -149,13 +125,7 @@ h2{
     -webkit-box-orient: vertical;
     -webkit-box-flex: 1;
     padding: 30px;
-    -webkit-transition: -webkit-transition 1s,  background-color 1s;
     margin-right: 5px;
-    background-color: #3182c1;
-}
-
-#items_container div:hover{
-    background-color: #3c9be5;
 }
 
 #items_container div h2{
@@ -176,4 +146,56 @@ h2{
 
 article{
     margin-top: 20px;
+}
+
+.nav-button {
+    -moz-box-shadow:inset -1px 0px 0px -3px #d9fbbe;
+    -webkit-box-shadow:inset -1px 0px 0px -3px #d9fbbe;
+    box-shadow:inset -1px 0px 0px -3px #d9fbbe;
+    background-color:#b8e356;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+    border:1px solid #83c41a;
+    display:inline-block;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:14px;
+    font-weight:normal;
+    padding:8px 30px;
+    text-decoration:none;
+    text-shadow:1px 1px 6px #86ae47;
+}.nav-button:hover {
+    background-color:#a5cc52;
+}.nav-button:active {
+    position:relative;
+    top:1px;
+}
+
+.click-button {
+    -moz-box-shadow:inset 0px 1px 0px -18px #caefab;
+    -webkit-box-shadow:inset 0px 1px 0px -18px #caefab;
+    box-shadow:inset 0px 1px 0px -18px #caefab;
+    background-color:#b9e356;
+    -moz-border-radius:42px;
+    -webkit-border-radius:42px;
+    border-radius:42px;
+    border:1px solid #268a16;
+    display:inline-block;
+    color:#ffffff;
+    font-family:arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:1px 1px 0px #aade7c;
+}.click-button:hover {
+    background-color:#a5cc52;
+}.click-button:active {
+    position:relative;
+    top:1px;
+}
+
+#logo{
+    margin: 20px;
 }

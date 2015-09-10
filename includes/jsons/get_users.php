@@ -1,15 +1,15 @@
 <?php 
 require_once("../initialize.php");
 
-$group_name = $_GET["group_name"];
+$group_id = $_GET["group_id"];
+$group = Group::get_by_id($group_id);
 
-if(!Group::group_exists($group_name)){
-    die("Group: " . $group_name . " does not exists.");
+if($group == null){
+    die("Group: " . $group_id . " does not exists.");
 }
 
-$users = User::get_all_by_group_name($group_name);
+$users = User::get_all_by_group_id($group_id);
 
 echo json_encode($users);
-//echo "<pre>". print_r($questions, true) ."</pre>";
 
 ?>
