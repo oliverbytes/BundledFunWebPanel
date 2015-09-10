@@ -1,0 +1,167 @@
+/** -------------- HOUSE KEEPING STUFF ---------------- **/
+
+#main_container{
+    height: 100%;
+    width: 100%;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-orient: vertical;
+}
+
+#main_section{
+    width: 100%;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-box-flex: 1;
+}
+
+#main_content{
+    width: 100%;
+    height:350px;
+    overflow:auto;
+    -webkit-box-flex: 1;
+    -webkit-transition: -webkit-transition 1s, background-color 1s;
+    background-color: white;
+    padding: 10px;
+    color: gray;
+}
+
+#side_content{
+    width: 10%;
+    padding: 10px;
+    margin-right: 5px;
+    background-color: #3182c1;
+    -webkit-transition: -webkit-transition 1s,  background-color 1s;
+}
+
+
+#main_header{
+    width: 100%;
+    margin-top: 2px;
+    margin-bottom: 5px;
+}
+
+#main_header h1{
+    font: 50px "RobotoThin";
+    padding: 30px;
+    -webkit-transition: -webkit-transition 1s, background-color 1s;
+}
+
+#main_nav, #status-bar{
+    width: 100%;
+    background-color: #3182c1;
+    display: -webkit-box;
+}
+
+#main_nav ul, #status-bar ul{
+    display: -webkit-box;
+}
+
+#main_nav ul li, #status-bar ul li{
+    display: -webkit-box;
+    -webkit-box-flex: 1;
+}
+
+#main_nav ul li a, #status-bar ul li a{
+    font-size: 14px;
+    display: -webkit-box;
+    -webkit-box-flex: 1;
+    -webkit-box-pack: center;
+    text-decoration: none;
+    padding: 5px 10px;
+    color: white;
+    -webkit-transition: -webkit-transition 1s, background-color 1s;
+}
+
+#main_nav ul li a:hover, #status-bar ul li a:hover{
+    background-color: #3c9be5;
+}
+
+#main_footer{
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+table{
+    width: 100%;
+}
+
+table thead th {
+    color: #81ABC9;
+    border-bottom: 5px solid #81ABC9;
+    text-transform: uppercase;
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+table tbody tr:hover{
+    background-color: #F5F5F5;
+    cursor: pointer;
+}
+
+table .odd{
+    background-color: #E9F1F7;
+}
+
+table .even{
+    background-color: white;
+}
+
+table td{
+    margin: 0px;
+    height: 40px;
+}
+
+
+/** -------------- HOUSE KEEPING STUFF ---------------- **/
+
+article{
+    margin-top: 20px;
+}
+
+li{
+    list-style-type: none;
+}
+
+h2{
+    color: #2BA9FF;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+header, footer, article, hgroup, section, aside{
+    display: block;
+}
+
+
+body{
+    width: 98%;
+    height: 100%;
+    padding: 15px;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    background-color: #235c88;
+    color: white;
+    font-size: 14px;
+    font-family: "RobotoRegular";
+}
+
+/** -------------- LEAN MODAL ---------------- **/
+
+/*#lean_overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: black;
+    display: none;
+}*/
+
+/** -------------- HOUSE KEEPING STUFF ---------------- **/
